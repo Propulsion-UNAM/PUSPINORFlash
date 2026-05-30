@@ -163,11 +163,29 @@ bool PUSPINORFlash::eraseAll()
 void PUSPINORFlash::dumpSerial()
 {
   Serial.println("-----");
-  for (uint32_t i = 0; i < reportedCapacity; i++)
+  
+  size_t chunkSize = 64;
+  uint8_t buf[chunkSize];
+  
+  for (uint32_t addr = 0; addr < reportedCapacity; addr += chunkSize)
   {
-    uint8_t bbyt = flash.readByte(i, true);
-    Serial.print(bbyt);
+    flash.readByteArray(addr, buf, chunkSize);
+
+    for (size_t i = 0; i < chunkSize; i++)
+    {
+      Serial.println("0x");
+      if (buf[i] < 0x10)
+      {
+        Serial.print("0");
+        Serial.print(buf[i], HEX);
+        Serial.print(" ");
+      }
+    }
+
+    Serial.println();
+    delay(1);
   }
+
   Serial.println();
   Serial.println("-----");
 }
