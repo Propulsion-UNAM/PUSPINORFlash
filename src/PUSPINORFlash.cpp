@@ -1,5 +1,6 @@
 #include "PUSPINORFlash.h"
 
+#ifndef ARDUINO_ARCH_RP2040
 PUSPINORFlash::PUSPINORFlash(uint8_t cs, SPIClass& sspi)
   : flash(cs, &sspi)
 {
@@ -11,7 +12,7 @@ PUSPINORFlash::PUSPINORFlash(uint8_t cs, SPIClass& sspi, uint32_t nmetadatasect,
 {
 
 }
-
+#else
 PUSPINORFlash::PUSPINORFlash(uint8_t cs, SPIClassRP2040& sspi)
   : flash(cs, &sspi)
 {
@@ -23,6 +24,7 @@ PUSPINORFlash::PUSPINORFlash(uint8_t cs, SPIClassRP2040& sspi, uint32_t nmetadat
 {
 
 }
+#endif
 
 bool PUSPINORFlash::begin(uint32_t flashChipSize)
 {
