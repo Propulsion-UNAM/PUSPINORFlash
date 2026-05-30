@@ -12,6 +12,18 @@ PUSPINORFlash::PUSPINORFlash(uint8_t cs, SPIClass& sspi, uint32_t nmetadatasect,
 
 }
 
+PUSPINORFlash::PUSPINORFlash(uint8_t cs, SPIClassRP2040& sspi)
+  : flash(cs, &sspi)
+{
+
+}
+
+PUSPINORFlash::PUSPINORFlash(uint8_t cs, SPIClassRP2040& sspi, uint32_t nmetadatasect, uint32_t sectsiz, uint32_t metamagic)
+  : flash(cs, &sspi), nmetadatasectors(nmetadatasect), sectorsize(sectsiz), metadatamagic(metamagic)
+{
+
+}
+
 bool PUSPINORFlash::begin(uint32_t flashChipSize)
 {
   JEDEC_ID = flash.getJEDECID();

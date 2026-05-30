@@ -51,6 +51,8 @@ class PUSPINORFlash
   public:
   PUSPINORFlash(uint8_t cs, SPIClass& sspi);
   PUSPINORFlash(uint8_t cs, SPIClass& sspi, uint32_t nmetadatasect, uint32_t sectsiz = DEFAULT_PUNORFLASH_SECTOR_SIZE, uint32_t metamagic = 0x50555055);
+  PUSPINORFlash(uint8_t cs, SPIClassRP2040& sspi);
+  PUSPINORFlash(uint8_t cs, SPIClassRP2040& sspi, uint32_t nmetadatasect, uint32_t sectsiz = DEFAULT_PUNORFLASH_SECTOR_SIZE, uint32_t metamagic = 0x50555055);
 
   // TODO: Reestructure as (size, units)
   bool begin(uint32_t flashChipSize = 0);
