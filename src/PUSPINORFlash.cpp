@@ -158,3 +158,15 @@ bool PUSPINORFlash::eraseAll()
   return flash.eraseChip();
   #endif
 }
+
+void PUSPINORFlash::dumpSerial()
+{
+  Serial.println("-----");
+  for (uint32_t i = 0; i < reportedCapacity; i++)
+  {
+    uint8_t bbyt = flash.readByte(i, true);
+    Serial.print(bbyt);
+  }
+  Serial.println();
+  Serial.println("-----");
+}

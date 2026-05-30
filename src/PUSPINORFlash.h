@@ -12,7 +12,7 @@
 
 #define RUNDIAGNOSTIC
 
-#define ERASEALLENABLED
+// #define ERASEALLENABLED
 
 class PUSPINORFlash
 {
@@ -98,6 +98,8 @@ class PUSPINORFlash
   }
 
   bool eraseAll();
+
+  void dumpSerial();
 
   SPIFlash* __flash;
 };
