@@ -1,13 +1,13 @@
 #include "PUSPINORFlash.h"
 
-PUSPINORFlash::PUSPINORFlash(uint8_t cs, SPIClass& SPI)
-  : flash(cs, &SPI)
+PUSPINORFlash::PUSPINORFlash(uint8_t cs, SPIClass& sspi)
+  : flash(cs, &sspi)
 {
 
 }
 
-PUSPINORFlash::PUSPINORFlash(uint8_t cs, SPIClass& SPI, uint32_t nmetadatasect, uint32_t sectsiz, uint32_t metamagic)
-  : flash(cs, &SPI), nmetadatasectors(nmetadatasect), sectorsize(sectsiz), metadatamagic(metamagic)
+PUSPINORFlash::PUSPINORFlash(uint8_t cs, SPIClass& sspi, uint32_t nmetadatasect, uint32_t sectsiz, uint32_t metamagic)
+  : flash(cs, &sspi), nmetadatasectors(nmetadatasect), sectorsize(sectsiz), metadatamagic(metamagic)
 {
 
 }
