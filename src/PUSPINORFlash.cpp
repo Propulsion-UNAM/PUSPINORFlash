@@ -169,17 +169,17 @@ void PUSPINORFlash::dumpSerial()
   
   for (uint32_t addr = 0; addr < reportedCapacity; addr += chunkSize)
   {
-    flash.readByteArray(addr, buf, chunkSize);
+    flash.readByteArray(addr, buf, chunkSize, true);
 
     for (size_t i = 0; i < chunkSize; i++)
     {
-      Serial.println("0x");
+      Serial.print("0x");
       if (buf[i] < 0x10)
       {
         Serial.print("0");
-        Serial.print(buf[i], HEX);
-        Serial.print(" ");
       }
+      Serial.print(buf[i], HEX);
+      Serial.print(" ");
     }
 
     Serial.println();

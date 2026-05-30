@@ -16,7 +16,7 @@ void printHelp()
     Serial.println("m        - show last metadata");
     Serial.println("i        - show internal state");
     Serial.println("ea       - errase all");
-    Serial.println("r <sector> -> <pos> - errase all");
+    Serial.println("r <sector> -> <pos> - read data");
     Serial.println("h        - help");
     Serial.println();
 }
