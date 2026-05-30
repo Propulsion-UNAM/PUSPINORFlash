@@ -157,6 +157,7 @@ bool PUSPINORFlash::eraseAll()
   #ifdef ERASEALLENABLED
   return flash.eraseChip();
   #endif
+  return false;
 }
 
 void PUSPINORFlash::dumpSerial()
