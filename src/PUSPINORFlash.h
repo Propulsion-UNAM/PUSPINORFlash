@@ -101,6 +101,10 @@ class PUSPINORFlash
 
   void dumpSerial();
 
+  bool isFull();
+
+  // TODO: Getters
+
   SPIFlash* __flash;
 };
 

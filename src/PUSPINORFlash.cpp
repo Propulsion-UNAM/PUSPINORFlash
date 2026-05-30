@@ -189,3 +189,8 @@ void PUSPINORFlash::dumpSerial()
   Serial.println();
   Serial.println("-----");
 }
+
+bool PUSPINORFlash::isFull()
+{
+  return (sector + 1) * sectorsize > reportedCapacity;
+}

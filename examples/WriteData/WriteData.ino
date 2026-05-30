@@ -105,8 +105,12 @@ void loop()
     printHelp();
   } else if (cmd == "ea") {
     Serial.println("Borrando todo");
-    flash.eraseAll();
-    Serial.println("Todo borrado");
+    if (flash.eraseAll())
+    {
+      Serial.println("Todo borrado");
+    } else {
+      Serial.println("Error al borrado (o borrado deshabilitado)");
+    }
   } else {
     Serial.println("Unknown command");
   }
