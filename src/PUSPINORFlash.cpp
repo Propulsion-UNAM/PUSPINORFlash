@@ -28,13 +28,13 @@ PUSPINORFlash::PUSPINORFlash(uint8_t cs, SPIClassRP2040& sspi, uint32_t nmetadat
 
 bool PUSPINORFlash::begin(uint32_t flashChipSize)
 {
-  JEDEC_ID = flash.getJEDECID();
-  reportedCapacity = flash.getCapacity();
-  uid = flash.getUniqueID();
   bool inited = flash.begin(flashChipSize);
 
   if (inited)
   {
+    JEDEC_ID = flash.getJEDECID();
+    reportedCapacity = flash.getCapacity();
+    uid = flash.getUniqueID();
     Meta lastmeta = _lastMetadata();
     if (lastmeta.magic == metadatamagic)
     {
